@@ -96,6 +96,8 @@ func (gw *APIGateway) AddRoute(route Route) {
 		route.Handler = methodPost(route.Handler)
 	case "GET":
 		route.Handler = methodGet(route.Handler)
+	case "OPTIONS":
+		break
 	default:
 		log.Fatalf("不支持的method: %v", route.Method)
 	}
