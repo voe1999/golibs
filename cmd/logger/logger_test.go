@@ -16,7 +16,6 @@ func TestNewLogger(t *testing.T) {
 		want    *Logger
 		wantErr bool
 	}{
-		// TODO: Add test cases.
 		{
 			name: "format不合法",
 			args: args{

@@ -99,7 +99,7 @@ func NewLogger(options []Option, skipDepth int) (*Logger, error) {
 		var encoder zapcore.Encoder
 		switch op.OutputFormat {
 		case FormatPlainText:
-			encoder = zapcore.NewConsoleEncoder(zap.NewProductionEncoderConfig())
+			encoder = zapcore.NewConsoleEncoder(zap.NewDevelopmentEncoderConfig())
 		case FormatJSON:
 			encoder = zapcore.NewJSONEncoder(zap.NewProductionEncoderConfig())
 		default:
