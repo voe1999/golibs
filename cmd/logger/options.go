@@ -45,6 +45,7 @@ const (
 	WriteToFile
 	// WriteToMessageQueue 写入消息队列。
 	WriteToMessageQueue
+	WriteToQYWeiXinBot
 )
 
 // Level 日志级别。
