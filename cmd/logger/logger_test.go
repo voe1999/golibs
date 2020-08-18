@@ -150,6 +150,15 @@ func TestLogger_Info(t *testing.T) {
 			MinLevel: ErrorLevel,
 			MaxLevel: FatalLevel,
 		},
+		{
+			OutputFormat: FormatPlainText,
+			WriteTo: WriteTo{
+				Type: WriteToQYWeiXinBot,
+				Path: "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=",
+			},
+			MinLevel: ErrorLevel,
+			MaxLevel: FatalLevel,
+		},
 	}
 	logger, err := NewLogger(options, 0)
 	if err != nil {

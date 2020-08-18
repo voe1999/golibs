@@ -2,6 +2,7 @@ package logger
 
 import (
 	"errors"
+	"github.com/voe1999/golibs/cmd/logger/extensions"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
@@ -126,6 +127,8 @@ func NewLogger(options []Option, skipDepth int) (*Logger, error) {
 		case WriteToMessageQueue:
 			// TODO 引入mq producer，实现Writer接口
 			panic("not implemented")
+		case WriteToQYWeiXinBot:
+			writeTo = zapcore.AddSync(extensions.NewQyWeiXinWriter(op.WriteTo.Path))
 		default:
 			return nil, errors.New("logger writeTo不合法")
 		}
